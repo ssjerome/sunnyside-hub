@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunnyside Hub</title>
+<meta name="apple-mobile-web-app-title" content="Sunnyside Hub">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#20261f">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+  :root{--bg:#f3f4ef;--fg:#20261f;--muted:#5c665a;--accent:#2f6b4f}
+  @media (prefers-color-scheme:dark){:root{--bg:#131714;--fg:#e4e8e1;--muted:#9ea89b;--accent:#6fbf94}}
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--bg);color:var(--fg);
+       font:16px/1.5 system-ui,sans-serif;padding:0 16px;text-align:center}
+  img{width:120px;height:120px;border-radius:24px}
+  a{color:var(--accent);font-weight:600}
+  p{color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+  <img src="icon-192.png" alt="Sunnyside Millwork">
+  <h1>Sunnyside Hub</h1>
+  <p id="status">To get the Sunnyside icon on your phone: iPhone, tap Share then <b>Add to Home Screen</b>. Android, tap &#8942; then <b>Add to Home screen</b>.</p>
+  <p><a id="go" href="https://script.google.com/a/macros/sunnysidemillwork.com/s/AKfycbw8HwqzQA3N4dqERWesTwMsEibv6jgqPn64FgXpoEeQot2UKzYbdK8h1iBVHx6m8k9A/exec">Open the Hub</a></p>
+  <p style="font-size:13px">The Hub is for the Sunnyside leadership team. Sign in with your Sunnyside Google account.</p>
+</main>
+<script>
+  // Opened from the home-screen icon: go straight to the Hub. Opened in the browser: stay, so the icon can be added.
+  var fromIcon = window.navigator.standalone === true || (window.matchMedia && matchMedia("(display-mode: standalone)").matches);
+  if (fromIcon) { document.getElementById("status").textContent = "Opening the Hub…"; location.replace(document.getElementById("go").href); }
+</script>
+</body>
+</html>
